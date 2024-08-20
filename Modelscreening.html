@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Henning Nilius, Jonas Kaufmann, Marcel Adler, Fabrizio Minervini, Anna Wieland Greguare-Sander, Lorenzo Alberio, Bernhard Gerber, Dino Kröll, Sajitha Veerakatty, Thomas Sauter, Andreas Koster, Gabor Erdös, Jerrold Levy, Christos Nakas, and Michael Nagler">
+
+<title>A decision support tool to improve the preoperative screening of mild bleeding disorders: A cross-sectional model development, external validation, and user-centric evaluation study - 2&nbsp; Model screening</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Modeltraining.html" rel="next">
+<link href="./Featureselection.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Modelscreening.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Model screening</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">A decision support tool to improve the preoperative screening of mild bleeding disorders: A cross-sectional model development, external validation, and user-centric evaluation study</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Featureselection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Feature selection</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Modelscreening.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Model screening</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Modeltraining.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Model training</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./External_validation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">External validation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./IML.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">IML</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Userevaluation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">User evaluation</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">2.1</span> Introduction</a></li>
+  <li><a href="#data-loading" id="toc-data-loading" class="nav-link" data-scroll-target="#data-loading"><span class="header-section-number">2.2</span> Data loading</a></li>
+  <li><a href="#model-screening" id="toc-model-screening" class="nav-link" data-scroll-target="#model-screening"><span class="header-section-number">2.3</span> Model screening</a>
+  <ul class="collapse">
+  <li><a href="#logistic-regression-based-models" id="toc-logistic-regression-based-models" class="nav-link" data-scroll-target="#logistic-regression-based-models"><span class="header-section-number">2.3.1</span> Logistic regression based models</a></li>
+  <li><a href="#tree-based-models" id="toc-tree-based-models" class="nav-link" data-scroll-target="#tree-based-models"><span class="header-section-number">2.3.2</span> Tree based models</a></li>
+  <li><a href="#svm-based-models" id="toc-svm-based-models" class="nav-link" data-scroll-target="#svm-based-models"><span class="header-section-number">2.3.3</span> SVM based models</a></li>
+  <li><a href="#xgb-models" id="toc-xgb-models" class="nav-link" data-scroll-target="#xgb-models"><span class="header-section-number">2.3.4</span> XGB models</a></li>
+  <li><a href="#neural-network-based-models" id="toc-neural-network-based-models" class="nav-link" data-scroll-target="#neural-network-based-models"><span class="header-section-number">2.3.5</span> Neural network based models</a></li>
+  <li><a href="#other-models" id="toc-other-models" class="nav-link" data-scroll-target="#other-models"><span class="header-section-number">2.3.6</span> Other models</a></li>
+  <li><a href="#overview-of-the-models" id="toc-overview-of-the-models" class="nav-link" data-scroll-target="#overview-of-the-models"><span class="header-section-number">2.3.7</span> Overview of the models</a></li>
+  </ul></li>
+  <li><a href="#final-models" id="toc-final-models" class="nav-link" data-scroll-target="#final-models"><span class="header-section-number">2.4</span> Final models</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Model screening</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Henning Nilius, Jonas Kaufmann, Marcel Adler, Fabrizio Minervini, Anna Wieland Greguare-Sander, Lorenzo Alberio, Bernhard Gerber, Dino Kröll, Sajitha Veerakatty, Thomas Sauter, Andreas Koster, Gabor Erdös, Jerrold Levy, Christos Nakas, and Michael Nagler </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="introduction" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">2.1</span> Introduction</h2>
+<p>In this chapter the model screening procedures are described. Six-teen different models were screened. The five best performing models were further tuned. When models with similar architecture were in the top 5, only the best performing model was selected for further tuning.</p>
+</section>
+<section id="data-loading" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="data-loading"><span class="header-section-number">2.2</span> Data loading</h2>
+<p>The trainings data is loaded for feature importance calculation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ble.tr <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"TrainingsSet.RDS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Loading required libraries:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret) <span class="co">#  Model training</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2) <span class="co"># Visualization</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT) <span class="co"># Data tables</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(doParallel) <span class="co"># Parallelization</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr) <span class="co"># Data manipulation</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># Data manipulation</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hrbrthemes) <span class="co"># Theme for ggplot</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="model-screening" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="model-screening"><span class="header-section-number">2.3</span> Model screening</h2>
+<p>A five-fold ten times repeated cross-validation was performed for each model. The semi-proper scoring rule ROC-AUC was chosen as the scoring rule.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>traincontrol3 <span class="ot">&lt;-</span><span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">"repeatedcv"</span>, <span class="at">number =</span> <span class="dv">10</span>, <span class="at">repeats =</span> <span class="dv">5</span>, <span class="at">allowParallel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                             <span class="at">summaryFunction =</span> twoClassSummary, <span class="at">selectionFunction =</span> <span class="st">"best"</span>, <span class="at">classProbs =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>All models were preprocessed using bagged-tree based imputation, centering, scaling and a Yeo-Johnson transformation.</p>
+<section id="logistic-regression-based-models" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="logistic-regression-based-models"><span class="header-section-number">2.3.1</span> Logistic regression based models</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">=</span> <span class="fu">makeCluster</span>(<span class="dv">5</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoParallel</span>(cls)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1033</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>mrf.log <span class="ot">&lt;-</span> <span class="fu">train</span>(mbd <span class="sc">~</span> PFA_EPI <span class="sc">+</span> surgery.simp <span class="sc">+</span>  menorrhagia.simp <span class="sc">+</span> postpartum.simp <span class="sc">+</span> minorwound.simp <span class="sc">+</span> epistaxis.simp <span class="sc">+</span> tooth.simp  <span class="sc">+</span> oralcavity.simp<span class="sc">+</span>  aPTT<span class="sc">+</span> cutaeous.simp,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> ble.tr, <span class="at">trControl =</span> traincontrol3, <span class="at">method =</span> <span class="st">"glm"</span>, <span class="at">family =</span> <span class="st">"binomial"</span>, <span class="at">preProc =</span><span class="fu">c</span>(<span class="st">"bagImpute"</span>,<span class="st">"center"</span>,<span class="st">"scale"</span>, <span class="st">"YeoJohnson"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>              , <span class="at">metric =</span> <span class="st">"ROC"</span>, <span class="at">na.action =</span> na.pass)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(cls)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">=</span> <span class="fu">makeCluster</span>(<span class="dv">5</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoParallel</span>(cls)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1033</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>mrf.enlog<span class="ot">&lt;-</span> <span class="fu">train</span>(mbd <span class="sc">~</span> PFA_EPI <span class="sc">+</span> surgery.simp <span class="sc">+</span>  menorrhagia.simp <span class="sc">+</span> postpartum.simp <span class="sc">+</span> minorwound.simp <span class="sc">+</span> epistaxis.simp <span class="sc">+</span> tooth.simp  <span class="sc">+</span> oralcavity.simp<span class="sc">+</span>  aPTT<span class="sc">+</span> cutaeous.simp,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> ble.tr, <span class="at">trControl =</span> traincontrol3, <span class="at">method =</span> <span class="st">"glmnet"</span>,  <span class="at">preProc =</span><span class="fu">c</span>(<span class="st">"bagImpute"</span>,<span class="st">"center"</span>,<span class="st">"scale"</span>, <span class="st">"YeoJohnson"</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                , <span class="at">metric =</span> <span class="st">"ROC"</span>, <span class="at">na.action =</span> na.pass)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(cls)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="tree-based-models" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="tree-based-models"><span class="header-section-number">2.3.2</span> Tree based models</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">=</span> <span class="fu">makeCluster</span>(<span class="dv">5</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoParallel</span>(cls)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1033</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>mrf.rpart <span class="ot">&lt;-</span>  <span class="fu">train</span>(mbd <span class="sc">~</span> PFA_EPI <span class="sc">+</span> surgery.simp <span class="sc">+</span>  menorrhagia.simp <span class="sc">+</span> postpartum.simp <span class="sc">+</span> minorwound.simp <span class="sc">+</span> epistaxis.simp <span class="sc">+</span> tooth.simp  <span class="sc">+</span> oralcavity.simp<span class="sc">+</span>  aPTT<span class="sc">+</span> cutaeous.simp,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> ble.tr, <span class="at">trControl =</span> traincontrol3, <span class="at">method =</span> <span class="st">"rpart"</span>,  <span class="at">preProc =</span><span class="fu">c</span>(<span class="st">"bagImpute"</span>,<span class="st">"center"</span>,<span class="st">"scale"</span>, <span class="st">"YeoJohnson"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                    , <span class="at">metric =</span> <span class="st">"ROC"</span>, <span class="at">na.action =</span> na.pass)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(cls)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">=</span> <span class="fu">makeCluster</span>(<span class="dv">5</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoParallel</span>(cls)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1033</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>mrf.rf <span class="ot">&lt;-</span> <span class="fu">train</span>(mbd <span class="sc">~</span> PFA_EPI <span class="sc">+</span> surgery.simp <span class="sc">+</span>  menorrhagia.simp <span class="sc">+</span> postpartum.simp <span class="sc">+</span> minorwound.simp <span class="sc">+</span> epistaxis.simp <span class="sc">+</span> tooth.simp  <span class="sc">+</span> oralcavity.simp<span class="sc">+</span>  aPTT<span class="sc">+</span> cutaeous.simp,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> ble.tr, <span class="at">trControl =</span> traincontrol3, <span class="at">method =</span> <span class="st">"rf"</span>,  <span class="at">preProc =</span><span class="fu">c</span>(<span class="st">"bagImpute"</span>,<span class="st">"center"</span>,<span class="st">"scale"</span>, <span class="st">"YeoJohnson"</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>                , <span class="at">metric =</span> <span class="st">"ROC"</span>, <span class="at">na.action =</span> na.pass)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(cls)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">=</span> <span class="fu">makeCluster</span>(<span class="dv">5</span>)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoParallel</span>(cls)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1033</span>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>mrf.gbm <span class="ot">&lt;-</span> <span class="fu">train</span>(mbd <span class="sc">~</span>PFA_EPI <span class="sc">+</span> surgery.simp <span class="sc">+</span> minorwound.simp <span class="sc">+</span> menorrhagia.simp <span class="sc">+</span> epistaxis.simp <span class="sc">+</span> tooth.simp  <span class="sc">+</span> aPTT<span class="sc">+</span> cutaeous.simp <span class="sc">+</span>sex,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>                 <span class="at">trControl =</span> traincontrol3,</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>                 <span class="at">metric =</span> <span class="st">"ROC"</span>, <span class="at">data =</span> ble.tr, <span class="at">method =</span> <span class="st">"gbm"</span>,</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>                 <span class="at">preProc =</span> <span class="fu">c</span>(<span class="st">"bagImpute"</span>,<span class="st">"center"</span>,<span class="st">"scale"</span>, <span class="st">"YeoJohnson"</span>), <span class="at">verbose =</span> <span class="cn">FALSE</span>, <span class="at">na.action =</span> na.pass)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(cls)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">=</span> <span class="fu">makeCluster</span>(<span class="dv">5</span>)</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoParallel</span>(cls)</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1033</span>)</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>mrf.c5 <span class="ot">&lt;-</span> <span class="fu">train</span>(mbd <span class="sc">~</span>PFA_EPI <span class="sc">+</span> surgery.simp <span class="sc">+</span> minorwound.simp <span class="sc">+</span> menorrhagia.simp <span class="sc">+</span> epistaxis.simp <span class="sc">+</span> tooth.simp  <span class="sc">+</span> aPTT<span class="sc">+</span> cutaeous.simp <span class="sc">+</span>sex,</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>                  <span class="at">trControl =</span> traincontrol3,</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>                  <span class="at">metric =</span> <span class="st">"ROC"</span>, <span class="at">data =</span> ble.tr, <span class="at">method =</span> <span class="st">"C5.0"</span>,</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>                  <span class="at">preProc =</span> <span class="fu">c</span>(<span class="st">"bagImpute"</span>,<span class="st">"center"</span>,<span class="st">"scale"</span>, <span class="st">"YeoJohnson"</span>), <span class="at">verbose =</span> <span class="cn">FALSE</span>, <span class="at">na.action =</span> na.pass)</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(cls)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="svm-based-models" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="svm-based-models"><span class="header-section-number">2.3.3</span> SVM based models</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SVM </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">=</span> <span class="fu">makeCluster</span>(<span class="dv">5</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoParallel</span>(cls)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1033</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>mrf.svmlin <span class="ot">&lt;-</span> <span class="fu">train</span>(mbd <span class="sc">~</span> PFA_EPI <span class="sc">+</span> surgery.simp <span class="sc">+</span>  menorrhagia.simp <span class="sc">+</span> postpartum.simp <span class="sc">+</span> minorwound.simp <span class="sc">+</span> epistaxis.simp <span class="sc">+</span> tooth.simp  <span class="sc">+</span> oralcavity.simp<span class="sc">+</span>  aPTT<span class="sc">+</span> cutaeous.simp,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> ble.tr, <span class="at">trControl =</span> traincontrol3, <span class="at">method =</span> <span class="st">"svmLinear"</span>,  <span class="at">preProc =</span><span class="fu">c</span>(<span class="st">"bagImpute"</span>,<span class="st">"center"</span>,<span class="st">"scale"</span>, <span class="st">"YeoJohnson"</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>                    , <span class="at">metric =</span> <span class="st">"ROC"</span>, <span class="at">na.action =</span> na.pass)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(cls)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">=</span> <span class="fu">makeCluster</span>(<span class="dv">5</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoParallel</span>(cls)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1033</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>mrf.svmrad <span class="ot">&lt;-</span> <span class="fu">train</span>(mbd <span class="sc">~</span> PFA_EPI <span class="sc">+</span> surgery.simp <span class="sc">+</span>  menorrhagia.simp <span class="sc">+</span> postpartum.simp <span class="sc">+</span> minorwound.simp <span class="sc">+</span> epistaxis.simp <span class="sc">+</span> tooth.simp  <span class="sc">+</span> oralcavity.simp<span class="sc">+</span>  aPTT<span class="sc">+</span> cutaeous.simp,</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> ble.tr, <span class="at">trControl =</span> traincontrol3, <span class="at">method =</span> <span class="st">"svmRadial"</span>,  <span class="at">preProc =</span><span class="fu">c</span>(<span class="st">"bagImpute"</span>,<span class="st">"center"</span>,<span class="st">"scale"</span>, <span class="st">"YeoJohnson"</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>                    , <span class="at">metric =</span> <span class="st">"ROC"</span>, <span class="at">na.action =</span> na.pass)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(cls)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">=</span> <span class="fu">makeCluster</span>(<span class="dv">5</span>)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoParallel</span>(cls)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1033</span>)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>mrf.svmpoly <span class="ot">&lt;-</span> <span class="fu">train</span>(mbd <span class="sc">~</span> PFA_EPI <span class="sc">+</span> surgery.simp <span class="sc">+</span>  menorrhagia.simp <span class="sc">+</span> postpartum.simp <span class="sc">+</span> minorwound.simp <span class="sc">+</span> epistaxis.simp <span class="sc">+</span> tooth.simp  <span class="sc">+</span> oralcavity.simp<span class="sc">+</span>  aPTT<span class="sc">+</span> cutaeous.simp,</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>                     <span class="at">data =</span> ble.tr, <span class="at">trControl =</span> traincontrol3, <span class="at">method =</span> <span class="st">"svmPoly"</span>,  <span class="at">preProc =</span><span class="fu">c</span>(<span class="st">"bagImpute"</span>,<span class="st">"center"</span>,<span class="st">"scale"</span>, <span class="st">"YeoJohnson"</span>)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>                     , <span class="at">metric =</span> <span class="st">"ROC"</span>, <span class="at">na.action =</span> na.pass)</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(cls)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="xgb-models" class="level3" data-number="2.3.4">
+<h3 data-number="2.3.4" class="anchored" data-anchor-id="xgb-models"><span class="header-section-number">2.3.4</span> XGB models</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">=</span> <span class="fu">makeCluster</span>(<span class="dv">5</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoParallel</span>(cls)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1033</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>mrf.xgblin <span class="ot">&lt;-</span> <span class="fu">train</span>(mbd <span class="sc">~</span> PFA_EPI <span class="sc">+</span> surgery.simp <span class="sc">+</span>  menorrhagia.simp <span class="sc">+</span> postpartum.simp <span class="sc">+</span> minorwound.simp <span class="sc">+</span> epistaxis.simp <span class="sc">+</span> tooth.simp  <span class="sc">+</span> oralcavity.simp<span class="sc">+</span>  aPTT<span class="sc">+</span> cutaeous.simp,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> ble.tr, <span class="at">trControl =</span> traincontrol3, <span class="at">method =</span> <span class="st">"xgbLinear"</span>,  <span class="at">preProc =</span><span class="fu">c</span>(<span class="st">"bagImpute"</span>,<span class="st">"center"</span>,<span class="st">"scale"</span>, <span class="st">"YeoJohnson"</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>                    , <span class="at">metric =</span> <span class="st">"ROC"</span>, <span class="at">na.action =</span> na.pass)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(cls)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">=</span> <span class="fu">makeCluster</span>(<span class="dv">5</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoParallel</span>(cls)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1033</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>mrf.xgbdart <span class="ot">&lt;-</span> <span class="fu">train</span>(mbd <span class="sc">~</span> PFA_EPI <span class="sc">+</span> surgery.simp <span class="sc">+</span>  menorrhagia.simp <span class="sc">+</span> postpartum.simp <span class="sc">+</span> minorwound.simp <span class="sc">+</span> epistaxis.simp <span class="sc">+</span> tooth.simp  <span class="sc">+</span> oralcavity.simp<span class="sc">+</span>  aPTT<span class="sc">+</span> cutaeous.simp,</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> ble.tr, <span class="at">trControl =</span> traincontrol3, <span class="at">method =</span> <span class="st">"xgbDART"</span>,  <span class="at">preProc =</span><span class="fu">c</span>(<span class="st">"bagImpute"</span>,<span class="st">"center"</span>,<span class="st">"scale"</span>, <span class="st">"YeoJohnson"</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>                    , <span class="at">metric =</span> <span class="st">"ROC"</span>, <span class="at">na.action =</span> na.pass)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(cls)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="neural-network-based-models" class="level3" data-number="2.3.5">
+<h3 data-number="2.3.5" class="anchored" data-anchor-id="neural-network-based-models"><span class="header-section-number">2.3.5</span> Neural network based models</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">=</span> <span class="fu">makeCluster</span>(<span class="dv">8</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoParallel</span>(cls)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1033</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>mrf.mlp <span class="ot">&lt;-</span> <span class="fu">train</span>(mbd <span class="sc">~</span> PFA_EPI <span class="sc">+</span> surgery.simp <span class="sc">+</span>  menorrhagia.simp <span class="sc">+</span> postpartum.simp <span class="sc">+</span> minorwound.simp <span class="sc">+</span> epistaxis.simp <span class="sc">+</span> tooth.simp  <span class="sc">+</span> oralcavity.simp<span class="sc">+</span>  aPTT<span class="sc">+</span> cutaeous.simp,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">data =</span> ble.tr, <span class="at">trControl =</span> traincontrol3, <span class="at">method =</span> <span class="st">"mlp"</span>,  <span class="at">preProc =</span><span class="fu">c</span>(<span class="st">"bagImpute"</span>,<span class="st">"center"</span>,<span class="st">"scale"</span>, <span class="st">"YeoJohnson"</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                     , <span class="at">metric =</span> <span class="st">"ROC"</span>, <span class="at">na.action =</span> na.pass)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(cls)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">=</span> <span class="fu">makeCluster</span>(<span class="dv">8</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoParallel</span>(cls)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1033</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>mrf.avNNet <span class="ot">&lt;-</span> <span class="fu">train</span>(mbd <span class="sc">~</span> PFA_EPI <span class="sc">+</span> surgery.simp <span class="sc">+</span>  menorrhagia.simp <span class="sc">+</span> postpartum.simp <span class="sc">+</span> minorwound.simp <span class="sc">+</span> epistaxis.simp <span class="sc">+</span> tooth.simp  <span class="sc">+</span> oralcavity.simp<span class="sc">+</span>  aPTT<span class="sc">+</span> cutaeous.simp,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> ble.tr, <span class="at">trControl =</span> traincontrol3, <span class="at">method =</span> <span class="st">"avNNet"</span>,  <span class="at">preProc =</span><span class="fu">c</span>(<span class="st">"bagImpute"</span>,<span class="st">"center"</span>,<span class="st">"scale"</span>, <span class="st">"YeoJohnson"</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>                 , <span class="at">metric =</span> <span class="st">"ROC"</span>, <span class="at">na.action =</span> na.pass)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(cls)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">=</span> <span class="fu">makeCluster</span>(<span class="dv">5</span>)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoParallel</span>(cls)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1033</span>)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>mrf.nnet <span class="ot">&lt;-</span> <span class="fu">train</span>(mbd <span class="sc">~</span> PFA_EPI <span class="sc">+</span> surgery.simp <span class="sc">+</span>  menorrhagia.simp <span class="sc">+</span> postpartum.simp <span class="sc">+</span> minorwound.simp <span class="sc">+</span> epistaxis.simp <span class="sc">+</span> tooth.simp  <span class="sc">+</span> oralcavity.simp<span class="sc">+</span>  aPTT<span class="sc">+</span> cutaeous.simp,</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>                             <span class="at">data =</span> ble.tr, <span class="at">trControl =</span> traincontrol3, <span class="at">method =</span> <span class="st">"nnet"</span>,  <span class="at">preProc =</span><span class="fu">c</span>(<span class="st">"bagImpute"</span>,<span class="st">"center"</span>,<span class="st">"scale"</span>, <span class="st">"YeoJohnson"</span>)</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>                             , <span class="at">metric =</span> <span class="st">"ROC"</span>, <span class="at">na.action =</span> na.pass, <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># weights:  58
+initial  value 322.659951 
+iter  10 value 212.016564
+iter  20 value 199.544073
+iter  30 value 196.255201
+iter  40 value 191.916277
+iter  50 value 190.703381
+iter  60 value 190.247428
+iter  70 value 190.111914
+iter  80 value 190.104541
+final  value 190.104366 
+converged</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(cls)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="other-models" class="level3" data-number="2.3.6">
+<h3 data-number="2.3.6" class="anchored" data-anchor-id="other-models"><span class="header-section-number">2.3.6</span> Other models</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">=</span> <span class="fu">makeCluster</span>(<span class="dv">5</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoParallel</span>(cls)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1033</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>mrf.nb <span class="ot">&lt;-</span> <span class="fu">train</span>(mbd <span class="sc">~</span> PFA_EPI <span class="sc">+</span> surgery.simp <span class="sc">+</span>  menorrhagia.simp <span class="sc">+</span> postpartum.simp <span class="sc">+</span> minorwound.simp <span class="sc">+</span> epistaxis.simp <span class="sc">+</span> tooth.simp  <span class="sc">+</span> oralcavity.simp<span class="sc">+</span>  aPTT<span class="sc">+</span> cutaeous.simp,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">data =</span> ble.tr, <span class="at">trControl =</span> traincontrol3, <span class="at">method =</span> <span class="st">"nb"</span>,  <span class="at">preProc =</span><span class="fu">c</span>(<span class="st">"bagImpute"</span>,<span class="st">"center"</span>,<span class="st">"scale"</span>, <span class="st">"YeoJohnson"</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>                , <span class="at">metric =</span> <span class="st">"ROC"</span>, <span class="at">na.action =</span> na.pass)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(cls)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">=</span> <span class="fu">makeCluster</span>(<span class="dv">5</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoParallel</span>(cls)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1033</span>)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>mrf.pda <span class="ot">&lt;-</span> <span class="fu">train</span>(mbd <span class="sc">~</span> PFA_EPI <span class="sc">+</span> surgery.simp <span class="sc">+</span>  menorrhagia.simp <span class="sc">+</span> postpartum.simp <span class="sc">+</span> minorwound.simp <span class="sc">+</span> epistaxis.simp <span class="sc">+</span> tooth.simp  <span class="sc">+</span> oralcavity.simp<span class="sc">+</span>  aPTT<span class="sc">+</span> cutaeous.simp,</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> ble.tr, <span class="at">trControl =</span> traincontrol3, <span class="at">method =</span> <span class="st">"pda"</span>,  <span class="at">preProc =</span><span class="fu">c</span>(<span class="st">"bagImpute"</span>,<span class="st">"center"</span>,<span class="st">"scale"</span>, <span class="st">"YeoJohnson"</span>)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>                 , <span class="at">metric =</span> <span class="st">"ROC"</span>, <span class="at">na.action =</span> na.pass)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(cls)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">=</span> <span class="fu">makeCluster</span>(<span class="dv">5</span>)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoParallel</span>(cls)</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1033</span>)</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>mrf.lda <span class="ot">&lt;-</span> <span class="fu">train</span>(mbd <span class="sc">~</span> PFA_EPI <span class="sc">+</span> surgery.simp <span class="sc">+</span>  menorrhagia.simp <span class="sc">+</span> postpartum.simp <span class="sc">+</span> minorwound.simp <span class="sc">+</span> epistaxis.simp <span class="sc">+</span> tooth.simp  <span class="sc">+</span> oralcavity.simp<span class="sc">+</span>  aPTT<span class="sc">+</span> cutaeous.simp,</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> ble.tr, <span class="at">trControl =</span> traincontrol3, <span class="at">method =</span> <span class="st">"lda"</span>,  <span class="at">preProc =</span><span class="fu">c</span>(<span class="st">"bagImpute"</span>,<span class="st">"center"</span>,<span class="st">"scale"</span>, <span class="st">"YeoJohnson"</span>)</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>                 , <span class="at">metric =</span> <span class="st">"ROC"</span>, <span class="at">na.action =</span> na.pass)</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="fu">stopCluster</span>(cls)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="overview-of-the-models" class="level3" data-number="2.3.7">
+<h3 data-number="2.3.7" class="anchored" data-anchor-id="overview-of-the-models"><span class="header-section-number">2.3.7</span> Overview of the models</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resamples</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>list.rfm <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"Logistic regression"</span> <span class="ot">=</span> mrf.log, </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Elastic net logistic regression"</span> <span class="ot">=</span> mrf.enlog, </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Rpart"</span> <span class="ot">=</span> mrf.rpart,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Random forest"</span> <span class="ot">=</span> mrf.rf,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"C5.0"</span> <span class="ot">=</span> mrf.c5,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Gradient boosting"</span> <span class="ot">=</span> mrf.gbm,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"SVM Linear"</span> <span class="ot">=</span> mrf.svmlin,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"SVM Radial"</span> <span class="ot">=</span> mrf.svmrad,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"SVM Poly"</span> <span class="ot">=</span> mrf.svmpoly,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Naive bayes"</span> <span class="ot">=</span> mrf.nb,</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"PDA"</span> <span class="ot">=</span> mrf.pda,</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"LDA"</span> <span class="ot">=</span> mrf.lda,</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Neural network"</span> <span class="ot">=</span> mrf.nnet,</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"XGB Linear"</span> <span class="ot">=</span> mrf.xgblin,</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"XGB DART"</span> <span class="ot">=</span> mrf.xgbdart,</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"MLP"</span> <span class="ot">=</span> mrf.mlp,</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"avNNet"</span> <span class="ot">=</span> mrf.avNNet)</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>resamples.rfm <span class="ot">&lt;-</span> caret<span class="sc">::</span><span class="fu">resamples</span>(list.rfm)</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>df.rfm <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(resamples.rfm)</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>piv.rfm <span class="ot">&lt;-</span> df.rfm <span class="sc">%&gt;%</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">!</span>Resample,<span class="at">names_to =</span> <span class="st">"Modeltype"</span>, <span class="at">values_to =</span> <span class="st">"AUC"</span>) </span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">60</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>qual_col_pals <span class="ot">=</span> brewer.pal.info[brewer.pal.info<span class="sc">$</span>category <span class="sc">==</span> <span class="st">'qual'</span>,]</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>col_vector <span class="ot">=</span> <span class="fu">unlist</span>(<span class="fu">mapply</span>(brewer.pal, qual_col_pals<span class="sc">$</span>maxcolors, <span class="fu">rownames</span>(qual_col_pals)))</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(piv.rfm, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(Modeltype,AUC,<span class="at">FUN =</span> median), <span class="at">y =</span> AUC, <span class="at">fill =</span> Modeltype)) <span class="sc">+</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">sample</span>(col_vector,<span class="dv">17</span>)) <span class="sc">+</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum</span>()<span class="sc">+</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>)<span class="sc">+</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">vjust =</span> <span class="dv">1</span>, <span class="at">hjust=</span><span class="dv">1</span>))<span class="sc">+</span></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="st">"white"</span>),</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="st">"white"</span>),</span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span></span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Modelscreening_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="final-models" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="final-models"><span class="header-section-number">2.4</span> Final models</h2>
+<p>The following models were further tuned: Random forest, SVM with a radial kernel, avNNet, XGB Dart and elastic net logistic regression.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Featureselection.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Feature selection</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Modeltraining.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Model training</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
